@@ -73,7 +73,7 @@ module.exports = {
 	return name.startsWith("_Z");
     },
 
-    demangle: function(name) {
+    demangle: function(name, onlyFunctionName) {
 
 	if (!this.isMangled(name)) return name;
 
@@ -211,6 +211,10 @@ module.exports = {
 
 	    types.push(typeInfo);
 	    str = process.str;
+	}
+	    
+	if (onlyFunctionName) {
+	    return functionname;
 	}
 
 	/* Create the string representation of the type */
